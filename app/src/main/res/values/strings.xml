@@ -3,5 +3,8 @@
     <string name="invalid_email">Invalid email</string>
     <string name="hint_email">Email</string>
     <string name="sign_in">Sign In</string>
+    <string name="minimal_password">Password minimal 8 karakter</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
 
 </resources>
