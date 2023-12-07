@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Cultour</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="hint_email">Email</string>
+    <string name="sign_in">Sign In</string>
+
 </resources>
