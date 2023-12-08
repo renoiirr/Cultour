@@ -12,84 +12,115 @@
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
         android:src="@drawable/image1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:contentDescription="@string/background_photo"/>
 
     <TextView
         android:id="@+id/tv_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/blue"
+        android:layout_marginStart="30dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:textSize="32sp"
         android:text="@string/sign_in"
+        android:textColor="@color/blue"
+        android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/iv_login"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="30dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/iv_login" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:startIconDrawable="@drawable/email_icon"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/blue"
+        app:boxStrokeColor="@color/blue"
+        app:boxBackgroundColor="@android:color/transparent"
         app:boxStrokeWidth="2dp"
-        app:boxStrokeColor="@android:color/transparent"
-        app:boxBackgroundColor="@android:color/transparent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login"
+        app:startIconDrawable="@drawable/email_icon"
+        app:startIconTint="@color/blue"
+        android:textColorHint="@color/blue">
 
         <com.capstone.cultour.ui.custom.MyEmail
-            android:id="@+id/edt_email"
+            android:id="@+id/myemail"
+            android:fontFamily="@font/montserrat_semibold"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
             android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
             android:textSize="14sp"
-            android:layout_marginTop="15dp"
-            />
+      />
     </com.google.android.material.textfield.TextInputLayout>
 
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/passwordTextInputLayout"
-    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-    android:layout_width="370dp"
-    android:layout_height="wrap_content"
-    app:endIconMode="password_toggle"
-    app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:boxStrokeWidth="2dp"
-    app:startIconDrawable="@drawable/pw_icon"
-    app:boxStrokeColor="@android:color/transparent"
-    app:boxBackgroundColor="@android:color/transparent"
-    >
-    <com.capstone.cultour.ui.custom.MyPassword
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTextInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_password"
-        android:textSize="14sp"
-        android:inputType="textPassword"/>
-</com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginTop="15dp"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxStrokeWidth="2dp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextInputLayout"
+        app:startIconDrawable="@drawable/pw_icon"
+        android:textColorHint="@color/blue"
+        app:startIconTint="@color/blue"
+        app:endIconTint="@color/blue">
 
-<Button
-    android:layout_width="300dp"
-    android:layout_height="64dp"
-    app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:text="@string/login"
-    android:textStyle="bold"
-    android:fontFamily="@font/montserrat_semibold"
-    android:textSize="12sp"
-    android:layout_marginTop="20dp"
-    android:backgroundTint="@color/blue"/>
+        <com.capstone.cultour.ui.custom.MyPassword
+            android:id="@+id/mypassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="300dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/login"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout" />
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="@id/btn_login"
+        app:layout_constraintStart_toStartOf="@id/btn_login"
+        app:layout_constraintTop_toBottomOf="@id/btn_login">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/haveacc" />
 
+        <TextView
+            android:id="@+id/tv_register_here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@string/register"
+            android:textColor="@color/blue" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

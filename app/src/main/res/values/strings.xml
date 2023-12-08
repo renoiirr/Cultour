@@ -6,5 +6,8 @@
     <string name="minimal_password">Password minimal 8 karakter</string>
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="haveacc">Belum memiliki akun?</string>
+    <string name="background_photo">Background Photo</string>
 
 </resources>
