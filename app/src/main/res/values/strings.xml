@@ -3,11 +3,18 @@
     <string name="invalid_email">Invalid email</string>
     <string name="hint_email">Email</string>
     <string name="sign_in">Sign In</string>
-    <string name="minimal_password">Password minimal 8 karakter</string>
+    <string name="minimal_password">Password min 8 characters</string>
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-    <string name="haveacc">Belum memiliki akun?</string>
+    <string name="haveacc">Doesn\'t have an account yet?</string>
     <string name="background_photo">Background Photo</string>
+    <string name="username">Username</string>
+    <string name="alreadyhaveacc">Already have an account?</string>
+    <string name="hintrepeat">Repeat Password</string>
+    <string name="search_hint">Search</string>
+    <string name="featured">Featured</string>
+    <string name="dummy_placename">Surabaya North Quay</string>
+    <string name="dummy_address">Jl. Perak Bar. North Perak, Surabaya 60165 Indonesia</string>
 
 </resources>
