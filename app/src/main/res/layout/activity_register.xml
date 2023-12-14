@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RegisterActivity">
+    tools:context=".ui.register.RegisterActivity">
     <ImageView
         android:id="@+id/iv_register"
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
         android:textColorHint="@color/blue"
         android:alpha="0.5">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernameEditText"
             android:fontFamily="@font/montserrat_semibold"
             android:layout_width="370dp"
@@ -185,6 +185,16 @@
             android:text="@string/sign_in"
             android:textColor="@color/blue" />
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
