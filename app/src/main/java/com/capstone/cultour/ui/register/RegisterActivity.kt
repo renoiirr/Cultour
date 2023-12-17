@@ -7,8 +7,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.capstone.cultour.data.Result
+import com.capstone.cultour.data.pref.UserModel
 import com.capstone.cultour.databinding.ActivityRegisterBinding
 import com.capstone.cultour.ui.ViewModelFactory
+import com.capstone.cultour.ui.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -45,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
                             binding.progressBar.visibility = View.GONE
                             val response = output.data
                             Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show()
+                            sendToLogin(UserModel(valEmail.toString(), valPassword.toString()))
                         }
 
                         is Result.Error -> {
@@ -55,5 +58,12 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun sendToLogin(data: UserModel) {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.putExtra("extra_email_username", data)
+        startActivity(intent)
+        finish()
     }
 }

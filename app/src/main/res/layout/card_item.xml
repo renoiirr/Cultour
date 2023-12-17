@@ -38,16 +38,20 @@
 
         <TextView
             android:id="@+id/address"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
             android:text="@string/dummy_address"
+            android:maxLines="1"
             app:layout_constraintTop_toBottomOf="@id/placename"
-            app:layout_constraintStart_toStartOf="@id/placename"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:textSize="10sp"
             android:alpha="0.5"
+            android:layout_marginHorizontal="20dp"
             android:paddingBottom="20dp"
-            android:paddingTop="8dp"/>
+            android:paddingTop="8dp"
+            android:ellipsize="end"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

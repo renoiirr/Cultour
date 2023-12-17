@@ -17,7 +17,7 @@ class ApiConfig {
                 .build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://cultour-api.onrender.com/users/")
+                .baseUrl("https://cultour-api.onrender.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

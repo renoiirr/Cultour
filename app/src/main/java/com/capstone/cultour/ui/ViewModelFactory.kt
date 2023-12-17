@@ -6,16 +6,20 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.cultour.data.Repository
 import com.capstone.cultour.data.di.Injection
 import com.capstone.cultour.ui.login.LoginViewModel
+import com.capstone.cultour.ui.profile.ProfileViewModel
 import com.capstone.cultour.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
+            return LoginViewModel(repository) as T
+        }
+        else if (modelClass.isAssignableFrom(RegisterViewModel::class.java)){
             return RegisterViewModel(repository) as T
         }
-        else if (modelClass.isAssignableFrom(LoginViewModel::class.java)){
-            return LoginViewModel(repository) as T
+        else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)){
+            return ProfileViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
