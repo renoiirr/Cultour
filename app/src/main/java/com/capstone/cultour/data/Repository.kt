@@ -1,8 +1,15 @@
 package com.capstone.cultour.data
 
 import android.content.Context
+import android.nfc.tech.MifareUltralight.PAGE_SIZE
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.liveData
+import com.capstone.cultour.data.api.home.HomeResponse
+import com.capstone.cultour.data.api.home.PlacesItem
 import com.capstone.cultour.data.api.login.Login
 import com.capstone.cultour.data.api.login.LoginResponse
 import com.capstone.cultour.data.api.register.Register
@@ -18,12 +25,12 @@ import java.util.prefs.Preferences
 class Repository private constructor(
     private val apiService: ApiService,
     private val pref: UserPreference
-){
+) {
     suspend fun registerUser(
         username: String,
         email: String,
         password: String
-    ): Result<RegisterResponse>{
+    ): Result<RegisterResponse> {
         return try {
             val response = apiService.signup(Register(username, email, password))
             Result.Success(response)
@@ -48,6 +55,7 @@ class Repository private constructor(
         }
     }
 
+
     fun saveSession(token: String, context: Context) {
         val settingPreferences = UserPreference(context)
         return settingPreferences.putUser(token)
@@ -58,6 +66,16 @@ class Repository private constructor(
         return settingPreferences.gainUser()
     }
 
+    fun getPlaces(): LiveData<Result<HomeResponse>> =
+        liveData {
+            emit(Result.Loading)
+            try {
+                val response = apiService.getPlaces()
+                emit(Result.Success(response))
+            } catch (e: Exception) {
+                emit(Result.Error(e.message.toString()))
+            }
+        }
 
     companion object {
         @Volatile

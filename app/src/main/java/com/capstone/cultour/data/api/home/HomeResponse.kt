@@ -1,8 +1,6 @@
 package com.capstone.cultour.data.api.home
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
 data class HomeResponse(
 
@@ -10,33 +8,35 @@ data class HomeResponse(
 	val places: List<PlacesItem>,
 
 	@field:SerializedName("success")
-	val success: Boolean? = null
+	val success: Boolean
 )
 
-@Parcelize
 data class PlacesItem(
 
 	@field:SerializedName("address_full")
-	val addressFull: String? = null,
+	val addressFull: String,
 
 	@field:SerializedName("image")
-	val image: String? = null,
+	val image: String ,
 
 	@field:SerializedName("latitude")
-	val latitude: Double? = null,
+	val latitude: Double,
 
 	@field:SerializedName("name")
-	val name: String? = null,
+	val name: String,
 
 	@field:SerializedName("rating")
-	val rating: Double? = null,
-
-	@field:SerializedName("_id")
-	val id: Int? = null,
+	val rating: String,
 
 	@field:SerializedName("category")
-	val category: String? = null,
+	val category: String,
 
 	@field:SerializedName("longitude")
-	val longitude: Double? = null
-):Parcelable
+	val longitude: Double,
+
+	@field:SerializedName("_id")
+	val id: String,
+
+	@field:SerializedName("place_id")
+	val placeId: Int
+)

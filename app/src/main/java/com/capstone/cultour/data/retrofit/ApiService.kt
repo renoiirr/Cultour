@@ -1,12 +1,12 @@
 package com.capstone.cultour.data.retrofit
 
+import com.capstone.cultour.data.api.home.HomeResponse
 import com.capstone.cultour.data.api.login.Login
 import com.capstone.cultour.data.api.login.LoginResponse
 import com.capstone.cultour.data.api.register.Register
 import com.capstone.cultour.data.api.register.RegisterResponse
-import okhttp3.RequestBody
 import retrofit2.http.Body
-import retrofit2.http.Field
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
@@ -19,4 +19,9 @@ interface ApiService {
     suspend fun login(
         @Body requestBody: Login
     ): LoginResponse
+
+    @GET("home")
+    suspend fun getPlaces(): HomeResponse
+
+
 }

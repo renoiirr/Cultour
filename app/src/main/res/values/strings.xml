@@ -17,5 +17,7 @@
     <string name="dummy_placename">Surabaya North Quay</string>
     <string name="dummy_address">Jl. Perak Bar. North Perak, Surabaya 60165 Indonesia</string>
     <string name="log_out">Log Out</string>
+    <string name="dummy_rating">4.5</string>
+    <string name="dummy_category">Historical Building</string>
 
 </resources>

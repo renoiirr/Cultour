@@ -26,7 +26,7 @@
 
         <TextView
             android:id="@+id/placename"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibold"
             android:text="@string/dummy_placename"
@@ -34,7 +34,37 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="20sp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_ratingcategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/placename"
+            app:layout_constraintStart_toStartOf="@id/placename">
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_rating"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="12sp"
+                app:drawableStartCompat="@drawable/icon_star" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_category"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="12sp"
+                android:layout_marginStart="10dp"/>
+        </LinearLayout>
+
+
 
         <TextView
             android:id="@+id/address"
@@ -43,15 +73,17 @@
             android:fontFamily="@font/montserrat_semibold"
             android:text="@string/dummy_address"
             android:maxLines="1"
-            app:layout_constraintTop_toBottomOf="@id/placename"
+            app:layout_constraintTop_toBottomOf="@id/ll_ratingcategory"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:textSize="10sp"
             android:alpha="0.5"
             android:layout_marginHorizontal="20dp"
             android:paddingBottom="20dp"
-            android:paddingTop="8dp"
+            android:paddingTop="5dp"
             android:ellipsize="end"/>
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

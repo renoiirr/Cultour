@@ -3,6 +3,7 @@ package com.capstone.cultour.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.capstone.cultour.data.MainViewModel
 import com.capstone.cultour.data.Repository
 import com.capstone.cultour.data.di.Injection
 import com.capstone.cultour.ui.login.LoginViewModel
@@ -21,6 +22,10 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
         else if (modelClass.isAssignableFrom(ProfileViewModel::class.java)){
             return ProfileViewModel(repository) as T
         }
+        else if (modelClass.isAssignableFrom(MainViewModel::class.java)){
+            return MainViewModel(repository) as T
+        }
+
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
 

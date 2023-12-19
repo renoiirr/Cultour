@@ -29,6 +29,9 @@ class RegisterActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+        binding.btnLogin.setOnClickListener{
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
         binding.btnRegister.setOnClickListener {
             val signupPassword = valPassword.toString()
 
