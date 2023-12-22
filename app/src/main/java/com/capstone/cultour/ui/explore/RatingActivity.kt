@@ -25,7 +25,7 @@ class RatingActivity : AppCompatActivity() {
         ViewModelFactory.findInstance(application)
     }
 
-    private var userId: Int = 1
+    private var userId: Long = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRatingBinding.inflate(layoutInflater)

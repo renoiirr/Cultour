@@ -5,6 +5,6 @@ data class RecommendationRequest (
 )
 
 data class RecommendationItem(
-    val user_id: Int,
+    val user_id: Long,
     val category: String
 )

@@ -111,6 +111,7 @@
         tools:listitem="@layout/recommendation_item"
         />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_maps"
         android:visibility="gone"

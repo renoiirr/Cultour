@@ -36,12 +36,12 @@ class UserPreference(context: Context) {
         val editor = preferences.edit()
         editor.putString(TOKEN, loginResult.token)
         editor.putString(NAME, loginResult.name)
-        loginResult.userId?.let { editor.putInt(USERID, it) }
+        loginResult.userId?.let { editor.putLong(USERID, it) }
         editor.apply()
     }
 
     fun gainUser(): LoginResult?{
-        val gainUserId = preferences.getInt(USERID, 1)
+        val gainUserId = preferences.getLong(USERID, 1)
         val gainToken = preferences.getString(TOKEN, "")
         val gainName = preferences.getString(NAME, "")
         return LoginResult(gainName, gainUserId, gainToken,)

@@ -37,7 +37,7 @@ class CategoryActivity : AppCompatActivity() {
         ViewModelFactory.findInstance(this)
     }
 
-    private var userId: Int = 1
+    private var userId: Long = 1
     private var selectedCategory: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityCategoryBinding.inflate(layoutInflater)
