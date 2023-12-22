@@ -14,6 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/logo_ss"/>
+        android:src="@drawable/logo_ss"
+        android:contentDescription="logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

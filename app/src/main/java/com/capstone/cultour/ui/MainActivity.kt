@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@ import com.capstone.cultour.data.Result
 import com.capstone.cultour.data.api.home.PlacesItem
 import com.capstone.cultour.data.dummy.WisataData
 import com.capstone.cultour.data.pref.UserPreference
+import com.capstone.cultour.data.retrofit.ApiConfig
 import com.capstone.cultour.databinding.ActivityMainBinding
 import com.capstone.cultour.ui.adapter.ListWisataAdapter
 import com.capstone.cultour.ui.explore.ExploreActivity
@@ -41,11 +43,8 @@ class MainActivity : AppCompatActivity() {
         handleTabButtonPress()
 
         pref = UserPreference(this)
-
-
-
-
         bottomNavigationView.selectedItemId = R.id.nav_home
+
     }
 
     private fun displayPlaces(mainViewModel: MainViewModel) {

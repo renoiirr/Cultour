@@ -1,26 +1,25 @@
 package com.capstone.cultour.data
 
 import android.content.Context
-import android.nfc.tech.MifareUltralight.PAGE_SIZE
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.liveData
+import com.capstone.cultour.data.api.explore.RecommendationItem
+
+import com.capstone.cultour.data.api.explore.RecommendationRequest
+import com.capstone.cultour.data.api.explore.RecommendedPlaceItem
+import com.capstone.cultour.data.api.explore.RecommenderResponse
+
 import com.capstone.cultour.data.api.home.HomeResponse
-import com.capstone.cultour.data.api.home.PlacesItem
 import com.capstone.cultour.data.api.login.Login
 import com.capstone.cultour.data.api.login.LoginResponse
+import com.capstone.cultour.data.api.login.LoginResult
 import com.capstone.cultour.data.api.register.Register
 import com.capstone.cultour.data.api.register.RegisterResponse
-import com.capstone.cultour.data.pref.UserModel
 import com.capstone.cultour.data.pref.UserPreference
 import com.capstone.cultour.data.retrofit.ApiService
-import kotlinx.coroutines.flow.Flow
 import org.json.JSONObject
 import retrofit2.HttpException
-import java.util.prefs.Preferences
 
 class Repository private constructor(
     private val apiService: ApiService,
@@ -55,13 +54,13 @@ class Repository private constructor(
         }
     }
 
-
-    fun saveSession(token: String, context: Context) {
+    fun saveSession(token: LoginResult, context: Context) {
         val settingPreferences = UserPreference(context)
         return settingPreferences.putUser(token)
     }
 
-    fun getSession(context: Context): String? {
+
+    fun getSession(context: Context): LoginResult? {
         val settingPreferences = UserPreference(context)
         return settingPreferences.gainUser()
     }
@@ -76,6 +75,20 @@ class Repository private constructor(
                 emit(Result.Error(e.message.toString()))
             }
         }
+
+
+    fun recommendByCategory(
+        request: RecommendationRequest
+    ): LiveData<Result<RecommenderResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.recommendByCategory(request)
+            emit(Result.Success(response))
+        }catch (e: Exception){
+            Log.e("Repository", "Error in recommendByCategory", e)
+            emit(Result.Error(e.message.toString()))
+        }
+    }
 
     companion object {
         @Volatile

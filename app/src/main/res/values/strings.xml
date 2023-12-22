@@ -19,5 +19,15 @@
     <string name="log_out">Log Out</string>
     <string name="dummy_rating">4.5</string>
     <string name="dummy_category">Historical Building</string>
+    <string name="make_your_plan">Make Your Plan</string>
+    <string name="desc">Cultour will help create your itinenary according to your preferences and make your trip amazing.</string>
+    <string name="get_started">Get Started</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="simply">Simply pick one of the categories below</string>
+    <string name="how">How would you prefer to enjoy your time?</string>
+    <string name="make_a_plan">Make a plan</string>
+    <string name="dummy_username">dummy username</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

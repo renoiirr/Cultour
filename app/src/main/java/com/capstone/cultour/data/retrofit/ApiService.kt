@@ -1,5 +1,9 @@
 package com.capstone.cultour.data.retrofit
 
+
+import com.capstone.cultour.data.api.explore.RecommendationItem
+import com.capstone.cultour.data.api.explore.RecommendationRequest
+import com.capstone.cultour.data.api.explore.RecommenderResponse
 import com.capstone.cultour.data.api.home.HomeResponse
 import com.capstone.cultour.data.api.login.Login
 import com.capstone.cultour.data.api.login.LoginResponse
@@ -22,6 +26,11 @@ interface ApiService {
 
     @GET("home")
     suspend fun getPlaces(): HomeResponse
+
+    @POST("recommend")
+    suspend fun recommendByCategory(
+    @Body requestBody: RecommendationRequest
+    ): RecommenderResponse
 
 
 }

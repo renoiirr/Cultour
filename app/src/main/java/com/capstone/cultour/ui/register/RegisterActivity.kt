@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.capstone.cultour.data.Result
@@ -26,17 +27,19 @@ class RegisterActivity : AppCompatActivity() {
         val valName = binding.usernameEditText.text
         val valEmail = binding.myemail.text
         val valPassword = binding.mypassword.text
+        val valRepeat = binding.repeatingPassword.text.toString()
 
         supportActionBar?.hide()
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         binding.btnLogin.setOnClickListener{
             startActivity(Intent(this, LoginActivity::class.java))
         }
         binding.btnRegister.setOnClickListener {
             val signupPassword = valPassword.toString()
-
-            if (signupPassword?.length!! < 8) {
-                binding.btnRegister.error = "Minimal harus 8 karakter"
+            if (signupPassword?.length!! < 8 && signupPassword != valRepeat) {
+                binding.btnRegister.error = "Invalid Passwords"
+                Toast.makeText(this, "${binding.btnRegister.error}", Toast.LENGTH_SHORT).show()
             } else {
 
                 viewModel.registerUser(
@@ -45,7 +48,9 @@ class RegisterActivity : AppCompatActivity() {
                     signupPassword
                 ).observe(this) { output ->
                     when (output) {
-                        is Result.Loading -> {}
+                        is Result.Loading -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
                         is Result.Success -> {
                             binding.progressBar.visibility = View.GONE
                             val response = output.data
@@ -54,8 +59,11 @@ class RegisterActivity : AppCompatActivity() {
                         }
 
                         is Result.Error -> {
+                            binding.progressBar.visibility = View.GONE
                             Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this, RegisterActivity::class.java))
+                            val intent = Intent(this, RegisterActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+                            startActivity(intent)
                         }
                     }
                 }

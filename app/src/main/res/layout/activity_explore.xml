@@ -1,64 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.explore.ExploreActivity">
 
-  <ImageView
-      android:id="@+id/iv_explore"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-    android:scaleType="centerCrop"
-    app:layout_constraintStart_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:src="@drawable/explore_pic"/>
+    <ImageView
+        android:id="@+id/iv_explore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/explore_pic"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <TextView
-      android:id="@+id/makeplan"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="116dp"
-      android:fontFamily="@font/montserrat_semibold"
-      android:text="Make Your Plan"
-      android:textColor="@color/white"
-      android:textSize="32sp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.109" />
-  <TextView
-      android:layout_width="250dp"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="116dp"
-      android:fontFamily="@font/montserrat_semibold"
-      android:text="Cultour will help create your itinenary according to your preferences and make your trip amazing."
-      android:textColor="@color/white"
-      android:textSize="12sp"
-      android:textAlignment="viewEnd"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/makeplan"/>
+    <TextView
+        android:id="@+id/makeplan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/make_your_plan"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <Button
-      android:layout_width="300dp"
-      android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/bottom_nav"
-    android:text="Get Started"
-      android:fontFamily="@font/montserrat_semibold"
-      android:layout_marginBottom="15dp"
-      android:backgroundTint="@color/blue"/>
-  <com.google.android.material.bottomnavigation.BottomNavigationView
-      android:id="@+id/bottom_nav"
-      android:layout_width="match_parent"
-      android:layout_height="70dp"
-      android:layout_alignParentBottom="true"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:menu="@menu/bottom_nav"
-      android:background="@color/white"
-      />
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/desc"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/makeplan" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btn_getstarted"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/get_started"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_background"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.cultour.data.MainViewModel
 import com.capstone.cultour.data.Repository
 import com.capstone.cultour.data.di.Injection
+import com.capstone.cultour.ui.explore.CategoryViewModel
+import com.capstone.cultour.ui.explore.RatingViewModel
 import com.capstone.cultour.ui.login.LoginViewModel
 import com.capstone.cultour.ui.profile.ProfileViewModel
 import com.capstone.cultour.ui.register.RegisterViewModel
@@ -24,6 +26,12 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
         }
         else if (modelClass.isAssignableFrom(MainViewModel::class.java)){
             return MainViewModel(repository) as T
+        }
+        else if (modelClass.isAssignableFrom(CategoryViewModel::class.java)){
+            return CategoryViewModel(repository) as T
+        }
+        else if (modelClass.isAssignableFrom(RatingViewModel::class.java)){
+            return RatingViewModel(repository) as T
         }
 
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

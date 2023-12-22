@@ -64,12 +64,16 @@ private val viewModel by viewModels<LoginViewModel> {
         }
     }
 
-    private fun isAlreadyLogin(context: Context){
-        viewModel.getSession(context).observe(this){token ->
-            if (token?.isEmpty()==false){
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+    private fun isAlreadyLogin(context: Context) {
+        viewModel.getSession(context).observe(this) { token ->
+            if (token != null) {
+                if (token.userId.toString().isNotBlank() && token.name.toString()
+                        .isNotBlank() && token.token.toString().isNotBlank()
+                ) {
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
     }
@@ -78,19 +82,21 @@ private val viewModel by viewModels<LoginViewModel> {
             if (output != null){
                 when (output){
                     is Result.Loading ->{
-//                        Loading process
+                        binding.progressBar.visibility = View.VISIBLE
                     }
                     is Result.Success ->{
+                        binding.progressBar.visibility = View.GONE
                         val info = output.data
                         if(info.loginResult?.token != null){
-                            viewModel.saveSession(info.loginResult.token, this)
+                            viewModel.saveSession(info.loginResult, this)
                         }
                         val mainActivity = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(mainActivity)
                         finish()
                     }
                     is Result.Error ->{
-                        Toast.makeText(this, output.error, Toast.LENGTH_SHORT).show()
+                        binding.progressBar.visibility = View.GONE
+                        Toast.makeText(this, output.error, Toast.LENGTH_LONG).show()
                     }
                 }
             }

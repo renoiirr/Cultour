@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.capstone.cultour.R
+import com.capstone.cultour.data.api.login.LoginResult
+import com.capstone.cultour.data.pref.UserPreference
 import com.capstone.cultour.databinding.ActivityProfileBinding
 import com.capstone.cultour.ui.MainActivity
 import com.capstone.cultour.ui.ViewModelFactory
@@ -17,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var userPreference: UserPreference
     private val viewModel by viewModels<ProfileViewModel> {
         ViewModelFactory.findInstance(this)
     }
@@ -25,12 +28,24 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        userPreference = UserPreference(this)
+
+        val loginResult: LoginResult? = userPreference.gainUser()
+
+        if (loginResult != null){
+            binding.tvUsername.text = loginResult.name
+            binding.tvUserid.text = loginResult.userId.toString()
+        }
+
         bindUIComponents()
         handleTabButtonPress()
         bottomNavigationView.selectedItemId = R.id.nav_profile
 
+
+
+
         binding.btnLogout.setOnClickListener{
-        viewModel.saveSession("", this)
+        viewModel.saveSession(LoginResult("",null,""), this)
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }

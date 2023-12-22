@@ -1,9 +1,12 @@
 package com.capstone.cultour.ui.explore
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.capstone.cultour.R
+import com.capstone.cultour.data.retrofit.ApiConfig
 import com.capstone.cultour.databinding.ActivityExploreBinding
 import com.capstone.cultour.databinding.ActivityMainBinding
 import com.capstone.cultour.ui.MainActivity
@@ -21,7 +24,31 @@ class ExploreActivity : AppCompatActivity() {
         bindUIComponents()
         handleTabButtonPress()
         bottomNavigationView.selectedItemId = R.id.nav_explore
+
+
+        binding.btnGetstarted.setOnClickListener{
+        showAlertDialog(this)
+        }
     }
+
+    private fun showAlertDialog(context: Context){
+        val alertDialogBuilder = AlertDialog.Builder(context)
+
+        alertDialogBuilder.setTitle("MAKE YOUR PLAN")
+        alertDialogBuilder.setMessage("Have you ever been to Surabaya before?")
+        alertDialogBuilder.setPositiveButton("YES"){dialog, which ->
+            startActivity(Intent(this, RatingActivity::class.java))
+        }
+        alertDialogBuilder.setNegativeButton("NO"){dialog, which ->
+            startActivity(Intent(this, CategoryActivity::class.java))
+        }
+
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+
+    }
+
+
 
     private fun handleTabButtonPress() {
         bottomNavigationView.setOnItemSelectedListener {

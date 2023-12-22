@@ -20,9 +20,10 @@ data class LoginResult(
     val name: String? = null,
 
     @field:SerializedName("userId")
-    val userId: String? = null,
+    val userId: Int? = null,
 
     @field:SerializedName("token")
     val token: String? = null
+
 )
 
