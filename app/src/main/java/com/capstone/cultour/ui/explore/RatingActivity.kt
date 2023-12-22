@@ -1,22 +1,17 @@
 package com.capstone.cultour.ui.explore
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.capstone.cultour.R
-import com.capstone.cultour.data.MainViewModel
 import com.capstone.cultour.data.Result
 import com.capstone.cultour.data.api.home.PlacesItem
 import com.capstone.cultour.data.api.login.LoginResult
 import com.capstone.cultour.data.pref.UserPreference
 import com.capstone.cultour.databinding.ActivityRatingBinding
 import com.capstone.cultour.ui.ViewModelFactory
-import com.capstone.cultour.ui.adapter.ListWisataAdapter
 import com.capstone.cultour.ui.adapter.RatingAdapter
-import com.capstone.cultour.ui.adapter.RecommendationAdapter
 
 class RatingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRatingBinding
